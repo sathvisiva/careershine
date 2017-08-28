@@ -7,16 +7,15 @@ var Schema = mongoose.Schema;
 /**
  * Todo Schema
  */
-var TodoSchema = new Schema({
-	title: String,
-	completed: Boolean,
+var ProgramsSchema = new Schema({
+	name: String,
+	about: String,
 	createdAt: Date,
-	updatedAt: Date,
-	test: Boolean
+	updatedAt: Date
 });
 
 // keep track of when todos are updated and created
-TodoSchema.pre('save', function(next, done) {
+ProgramsSchema.pre('save', function(next, done) {
 	if (this.isNew) {
 		this.createdAt = Date.now();
 	}
@@ -24,4 +23,4 @@ TodoSchema.pre('save', function(next, done) {
 	next();
 });
 
-export default mongoose.model('Todo', TodoSchema);
+export default mongoose.model('Programs', ProgramsSchema);

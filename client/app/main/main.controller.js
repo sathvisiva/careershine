@@ -8,7 +8,7 @@
 	}
 	
 	angular.module('todoListApp')
-		.controller('MainCtrl', function($scope, $timeout, Todo, filterFilter, $location) {
+		.controller('MainCtrl', function($scope, $timeout, Programs, filterFilter, $location) {
 			$scope.todos = [];
 			$scope.newTodo = '';
 			$scope.editedTodo = null;

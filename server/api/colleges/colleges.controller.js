@@ -1,16 +1,16 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/todos              ->  index
- * POST    /api/todos              ->  create
- * GET     /api/todos/:id          ->  show
- * PUT     /api/todos/:id          ->  update
- * DELETE  /api/todos/:id          ->  destroy
+ * GET     /api/Collegess              ->  index
+ * POST    /api/Collegess              ->  create
+ * GET     /api/Collegess/:id          ->  show
+ * PUT     /api/Collegess/:id          ->  update
+ * DELETE  /api/Collegess/:id          ->  destroy
  */
 
 'use strict';
 
 import _ from 'lodash';
-import Todo from './todo.model';
+import Colleges from './colleges.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -59,85 +59,92 @@ function handleError(res, statusCode) {
   };
 }
 
-// Finds a Todo by ID and store it in the request
-export function todo(req, res, next, id) {
-  Todo.findById(id, function(err, todo) {
+// Finds a Colleges by ID and store it in the request
+export function colleges(req, res, next, id) {
+  Colleges.findById(id, function(err, Colleges) {
     if (err) return next(err);
-    if (!todo) return next(new Error('Failed to load todo ' + id));
-    req.todo = todo;
+    if (!Colleges) return next(new Error('Failed to load Colleges ' + id));
+    req.Colleges = Colleges;
     next();
   });
 }
 
-// Query a list of Todos
+// Query a list of Collegess
 export function query(req, res) {
-  Todo.find().sort('-createdAt').exec(function(err, todos) {
+  Colleges.find().sort('-createdAt').exec(function(err, Collegess) {
     if (err) return res.json(500, err);
-    res.json(todos);
+    res.json(Collegess);
   });
 }
 
-// Gets a list of Todos
+// Gets a list of Collegess
 export function index(req, res) {
-  /*return Todo.find().exec()
+  /*return Colleges.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));*/
 }
 
-// Gets a single Todo from the DB
+// Gets a single Colleges from the DB
 export function show(req, res) {
-  /*return Todo.findById(req.params.id).exec()
+  /*return Colleges.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));*/
-  res.json(req.todo);
+  res.json(req.Colleges);
 }
 
-// Creates a new Todo in the DB
+// Creates a new Colleges in the DB
 export function create(req, res) {
-  /*return Todo.create(req.body)
+  console.log(req)
+  /*return Colleges.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));*/
-  var todo = new Todo(req.body);
+/*  var Colleges = new Colleges(req.body);
 
-  todo.save(function(err) {
+  Colleges.save(function(err) {
     if (err) return res.json(500, err);
-    res.json(todo);
-  });
+    res.json(Colleges);
+  });*/
+
+  Colleges.create(req.body, function(err, college) {
+      if(err) { return handleError(res, err); }
+           console.log(college)
+      return res.status(201).json(college);
+    });
 }
 
-// Updates an existing Todo in the DB
+// Updates an existing Colleges in the DB
 export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  return Todo.findById(req.params.id).exec()
+  return Colleges.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(respondWithResult(res))
     .catch(handleError(res));
-  /*Todo.update({
-    _id: req.todo._id
-  }, req.body, {}, function(err, updatedTodo) {
+  /*Colleges.update({
+    _id: req.Colleges._id
+  }, req.body, {}, function(err, updatedColleges) {
     if (err) return res.json(500, err);
-    res.json(updatedTodo);
+    res.json(updatedColleges);
   });*/
 
 }
 
-// Remove a Todo
+// Remove a Colleges
 export function remove(req, res) {
-  var todo = req.todo;
+  var Colleges = req.Colleges;
 
-  todo.remove(function(err) {
+  Colleges.remove(function(err) {
     if (err) return res.json(500, err);
-    res.json(todo);
+    res.json(Colleges);
   });
 }
 
-// Deletes a Todo from the DB
+// Deletes a Colleges from the DB
 export function destroy(req, res) {
-  return Todo.findById(req.params.id).exec()
+  return Colleges.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));

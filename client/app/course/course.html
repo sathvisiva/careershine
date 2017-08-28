@@ -1,0 +1,49 @@
+
+
+<div class="container">
+	<section class="product-grid" style="min-height: 200px">
+		<div class="container">
+			<div class="row">
+
+
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+					<div class="text-center">
+						<h3>List of Courses</h3>
+					</div>
+
+					<div class="table-responsive" ng-hide="filtered.length === 0">
+						<div class="row">
+							<div  class="col-md-6 pull-right">
+								<a href="/addCourse" class="btn btn-xs btn-success pull-right"><span class="fa fa-plus fa-2x"></span></a>
+							</div>
+
+						</div>
+
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<td>Course Name</td>
+									<td class="text-center" colspan="3">Actions</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="course in courses" class="order-col">
+									<td><a href ="/viewCourse/{{course._id}}" >{{course.course}}</a></td>
+									<td >
+										<a ng-click=deleteCourse(course._id) class="trash"><span class="fa fa-trash fa-2x">                                </span></a>
+									</td>
+									<td >
+										<a href ="/editCourse/{{course._id}}" class="trash"><span class="fa fa-edit fa-2x">                                </span></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
