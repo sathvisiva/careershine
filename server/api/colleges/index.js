@@ -9,6 +9,7 @@ router.param('id', controller.colleges);
 
 //router.get('/', controller.index);
 router.get('/', controller.query);
+router.get('/:slug', controller.show);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.update);

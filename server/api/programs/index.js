@@ -5,11 +5,11 @@ var controller = require('./programs.controller');
 
 var router = express.Router();
 
-router.param('id', controller.programs);
+/*router.param('id', controller.programs);*/
 
 //router.get('/', controller.index);
+router.get('/:slug', controller.show);
 router.get('/', controller.query);
-router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.update);
 //router.patch('/:id', controller.update);

@@ -1,46 +1,130 @@
-<h1 class="list-title">Wonderlist</h1>
-<section id="todoapp">
-    <div class="list-input">
-        <form id="todo-form" ng-submit="addTodo()">
-            <input id="new-todo" placeholder="Add your to-do..." ng-model="newTodo" autofocus="">
-        </form>
+<navbar></navbar>
+<div class="home">
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <h1  class="title">Welcome To Career Shine Academy</h1>
+            </div>
+        </div>
     </div>
-    <div id="list-main" class="list-main" ng-show="todos.length">
-        <!-- <input id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
-        <label for="toggle-all">Mark all as complete</label> -->
-        <ul id="todo-list" class="todo-list">
-            <li class="todo-item" ng-repeat="(id, todo) in todos | filter:statusFilter track by $index" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
-                <div class="view">
-                    <input class="todo-check" type="checkbox" ng-model="todo.completed" ng-change="todo.$update()">
-                    <label class="todo-content" ng-dblclick="editTodo(id)">{{todo.title}}</label>
-                    <button class="todo-remove" ng-click="removeTodo(id)"></button>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <p>Career Shine Academy, as an education partner of Hughes Global Education, offers executive programs directly from IIMs, IITs, and other prestigious institutions. Career Shine Academy is partnership firm established on May 2015 at East Tambaram- Chennai. Main objective of Career Shine Academy is to provide the best B-schools executive programmes for the professionals residing around Tambaram -Chennai Circle. </p>
+                <br>
+                <p>
+                    Hughes Global Education is the pioneer in providing the ‘Interactive Online Learning Platform’ for the working professionals to pursue an executive mba. The programs are provided by the top notch B-schools viz.IIM Calcutta, IIM Kozhikode, IIM Rohtak, IIFT New Delhi and XLRI Jamshedpur. The best faculties in the country take live lectures imparting knowledge that is exclusive with specializations across various streams like General Management, Sales & Marketing, Human Resource, Project Management, Finance, International Trade etc 
+
+                </p>
+                <br>
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 col-1"> 
+
+                <div class="carousel">
+                  <div class="row">
+                    <div class="col-md-12">
+                    <h4 class="list-group-item active text-center"><span class="fa fa-user-plus"></span> Enrollment Open For</h4>
+                      <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                          <div uib-slide ng-repeat="course in enablementcourses" index="$index">
+                          <div class="col-md-9 col-md-offset-2 text-center">
+                              <span><img ng-src={{course.logo}} style="width: 100px;"/></span>
+                              <span><a href ="/viewCourse/{{course.shortname}}"><h4>{{course.course}}</h4></a></span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>
+</div>
+<br>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="text-center">
+            <h1  class="title">Academic Partners</h1>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="services-agileits" id="services">
+            <div class="container">
+
+                <div class="services-agileits-w3layouts">
+                    <div class="col-md-12 service-grids">
+                        <img src="assets/images/image4.jpg" style="min-width: 100%" class="img-responsive wow slideInLeft" data-wow-duration="1s" data-wow-delay="1s" alt="">
+                    </div>
+                    <div class="clearfix"> </div>   
                 </div>
-                <form ng-submit="doneEditing(id)">
-                    <input class="edit" ng-model="todo.title" ng-blur="doneEditing(id)" todo-escape="revertEditing(id)" todo-focus="todo == editedTodo">
-                </form>
-            </li>
-        </ul>
-    </div>
-    <div class="list-footer" ng-show="todos.length">
-        <div class="list-status">
-            <span id="todo-count">
-                <strong>{{remainingCount}}</strong>
-                <ng-pluralize count="remainingCount" when="{ one: 'todo left', other: 'todos left' }"></ng-pluralize>
-            </span>
-            <button class="todo-delete" id="clear-completed" ng-click="clearCompletedTodos()" ng-show="completedCount">Remove done todos ({{completedCount}})</button>
-        </div>
-        <div class="list-filter">
-            <ul id="filters">
-                <li>
-                    <a ng-class="{selected: status == ''} " href="?">All</a>
-                </li>
-                <li>
-                    <a ng-class="{selected: status == 'active'}" href="?q=active">Unfinished</a>
-                </li>
-                <li>
-                    <a ng-class="{selected: status == 'completed'}" href="?q=completed">Done</a>
-                </li>
-            </ul>
+            </div>
         </div>
     </div>
-</section>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="text-center">
+            <h1  class="title">Testimonials</h1>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 agileinfo_team_grid wow fadeInLeft" data-wow-delay="0.1s" style="visibility: visible; -webkit-animation-delay: 0.1s; -moz-animation-delay: 0.1s; animation-delay: 0.1s;">
+            <div class="agileinfo_team_grid1">
+                <div class="test-top-wthree">
+                    <div class="test-right-wthree">
+                        <h6>R. Krishna Kumar</h6>
+                        <p>IIMC – EPBM </p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="test-bottom-w3-agile">
+                    <i class="fa fa-quote-left" aria-hidden="true"></i>
+                    <p class="para-agileits-w3layouts">Good Infra, Good Assistance and no issue with the networks and good and reliable staf</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 agileinfo_team_grid wow fadeInLeft" data-wow-delay="0.1s" style="visibility: visible; -webkit-animation-delay: 0.1s; -moz-animation-delay: 0.1s; animation-delay: 0.1s;">
+            <div class="agileinfo_team_grid1">
+                <div class="test-top-wthree">
+                    <div class="test-right-wthree">
+                        <h6>Ramesh Kumar</h6>
+                        <p>XLRI – PGCHRM </p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="test-bottom-w3-agile">
+                    <i class="fa fa-quote-left" aria-hidden="true"></i>
+                    <p class="para-agileits-w3layouts">Good connectivity with good infra, resolving the issues if any is in fast pace. Sai & Kavin attend personally if any problem persists. Very nice Co-ordination.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 agileinfo_team_grid wow fadeInLeft" data-wow-delay="0.1s" style="visibility: visible; -webkit-animation-delay: 0.1s; -moz-animation-delay: 0.1s; animation-delay: 0.1s;">
+            <div class="agileinfo_team_grid1">
+                <div class="test-top-wthree">
+                    <div class="test-right-wthree">
+                        <h6>G. Mohammed Hanifa</h6>
+                        <p>IIMC - EPYM</p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="test-bottom-w3-agile">
+                    <i class="fa fa-quote-left" aria-hidden="true"></i>
+                    <p class="para-agileits-w3layouts">Maintaining the network connection good at all time and maintaining facility good. Haven’t faced any issue.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<footer></footer>

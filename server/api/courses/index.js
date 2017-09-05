@@ -5,7 +5,7 @@ var controller = require('./courses.controller');
 
 var router = express.Router();
 
-router.param('id', controller.course);
+/*router.param('id', controller.course);*/
 
 //router.get('/', controller.index);
 router.get('/', controller.query);

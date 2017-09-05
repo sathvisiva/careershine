@@ -1,21 +1,30 @@
-<div class="col-md-12 service-grids">
-	<img src="images/image4.jpg" style="min-width: 100%" class="img-responsive wow slideInLeft" data-wow-duration="0.1s" data-wow-delay="0.1s" alt="">
-</div>
+
+<navbar></navbar>
 
 <div class="container">
 	<div class="row">
+
 		<div class="col-md-12">
 			<div class="text-center">
-				<h1  class="title">{{programs.name}}</h1>
+				<span><img ng-src={{college.logo}} style="width: 100px;"/></span>
+				<span><h1  class="title">{{college.name}}</h1></span>
 			</div>
 		</div>
 	</div>
 </div>
 <br>
 <div class="container">
-<div ng-cloak>
-  <md-content>
-     <div ta-bind ng-model="programs.about"></div>
-  </md-content>
+	<div class="row">
+		<div class="col-md-8">
+			<div ng-cloak>
+				<md-content>
+					<div ta-bind ng-model="college.about"></div>
+				</md-content>
+			</div>
+		</div>
+		<div class="col-md-4">
+		<enquiry></enquiry>
+		</div>
+	</div>
 </div>
-</div>
+<footer></footer>

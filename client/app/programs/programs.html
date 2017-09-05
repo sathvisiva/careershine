@@ -9,7 +9,7 @@
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 					<div class="text-center">
-						<h3>List of Courses</h3>
+						<h3>List of Programs</h3>
 					</div>
 
 					<div class="table-responsive" ng-hide="filtered.length === 0">
@@ -29,12 +29,12 @@
 							</thead>
 							<tbody>
 								<tr ng-repeat="program in programs" class="order-col">
-									<td><a href ="/viewProgram/{{program._id}}" >{{program.name}}</a></td>
+									<td><a href ="/viewProgram/{{program.slug}}" >{{program.name}}</a></td>
 									<td >
 										<a ng-click=deleteProgram(program._id) class="trash"><span class="fa fa-trash fa-2x">                                </span></a>
 									</td>
 									<td >
-										<a href ="/editProgram/{{program._id}}" class="trash"><span class="fa fa-edit fa-2x">                                </span></a>
+										<a href ="/editProgram/{{program.slug}}" class="trash"><span class="fa fa-edit fa-2x">                                </span></a>
 									</td>
 								</tr>
 							</tbody>

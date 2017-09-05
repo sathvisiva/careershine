@@ -1,6 +1,8 @@
 'use strict';
 
 import mongoose from 'mongoose';
+var slugs = require('mongoose-url-slugs');
+
 
 var Schema = mongoose.Schema;
 
@@ -23,5 +25,7 @@ CollegesSchema.pre('save', function(next, done) {
 	this.updatedAt = Date.now();
 	next();
 });
+
+CollegesSchema.plugin(slugs('name'));
 
 export default mongoose.model('Colleges', CollegesSchema);

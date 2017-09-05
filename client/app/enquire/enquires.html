@@ -1,0 +1,41 @@
+
+
+<div class="container">
+	<section class="product-grid" style="min-height: 200px">
+		<div class="container">
+			<div class="row">
+
+
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+					<div class="text-center">
+						<h3>List of Enquires</h3>
+					</div>
+
+					<div class="table-responsive" >
+
+
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<td>Name</td>
+									<td class="text-center" >Email</td>
+									<td class="text-center" >Phone</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="enquire in enquiries" class="order-col">
+									<td class="text-center"><a href ="/viewEnquiry/{{enquire._id}}" >{{enquire.name}}</a></td>
+									<td class="text-center"><a href ="/viewEnquiry/{{enquire._id}}" >{{enquire.email}}</a></td>
+									<td class="text-center"><a href ="/viewEnquiry/{{enquire._id}}" >{{enquire.phone}}</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+

@@ -7,12 +7,12 @@
  * DELETE  /api/Collegess/:id          ->  destroy
  */
 
-'use strict';
+ 'use strict';
 
-import _ from 'lodash';
-import Colleges from './colleges.model';
+ import _ from 'lodash';
+ import Colleges from './colleges.model';
 
-function respondWithResult(res, statusCode) {
+ function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
     if (entity) {
@@ -21,13 +21,22 @@ function respondWithResult(res, statusCode) {
   };
 }
 
+function isJson(str) {
+  try {
+    str = JSON.parse(str);
+  } catch (e) {
+    str = str;
+  }
+  return str
+}
+
 function saveUpdates(updates) {
   return function(entity) {
     var updated = _.merge(entity, updates);
     return updated.save()
-      .then(updated => {
-        return updated;
-      });
+    .then(updated => {
+      return updated;
+    });
   };
 }
 
@@ -35,9 +44,9 @@ function removeEntity(res) {
   return function(entity) {
     if (entity) {
       return entity.remove()
-        .then(() => {
-          res.status(204).end();
-        });
+      .then(() => {
+        res.status(204).end();
+      });
     }
   };
 }
@@ -71,10 +80,27 @@ export function colleges(req, res, next, id) {
 
 // Query a list of Collegess
 export function query(req, res) {
-  Colleges.find().sort('-createdAt').exec(function(err, Collegess) {
+ /* console.log("inside query");
+  console.log("college");
+  console.log(req.query);
+  Colleges.find().sort('-createdAt').select('name logo slug').select('name logo slug').exec(function(err, Collegess) {
     if (err) return res.json(500, err);
     res.json(Collegess);
-  });
+  });*/
+
+  if(req.query){
+    var q = isJson(req.query.where);
+    Colleges.find(q).sort('-createdAt').select('name logo slug').exec(function(err, enquiry) {
+      if (err) return res.json(500, err);
+      res.json(enquiry);
+    });
+  }
+  else{
+    Colleges.find().sort('-createdAt').select('name logo slug').exec(function(err, enquiry) {
+      if (err) return res.json(500, err);
+      res.json(enquiry);
+    });
+  }
 }
 
 // Gets a list of Collegess
@@ -82,20 +108,31 @@ export function index(req, res) {
   /*return Colleges.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));*/
-}
+  }
 
 // Gets a single Colleges from the DB
 export function show(req, res) {
   /*return Colleges.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
-    .catch(handleError(res));*/
-  res.json(req.Colleges);
+    .catch(handleError(res))w;*/
+
+   
+
+    Colleges.findOne(req.params).sort('-createdAt').exec(function(err, colleges) {
+      if (err) return res.json(500, err);
+      res.json(colleges);
+    });
+
+/*     console.log("inside show");
+  console.log(req.params);
+  console.log(req.query);*/
+
 }
 
 // Creates a new Colleges in the DB
 export function create(req, res) {
-  console.log(req)
+
   /*return Colleges.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));*/
@@ -107,10 +144,10 @@ export function create(req, res) {
   });*/
 
   Colleges.create(req.body, function(err, college) {
-      if(err) { return handleError(res, err); }
-           console.log(college)
-      return res.status(201).json(college);
-    });
+    if(err) { return handleError(res, err); }
+    
+    return res.status(201).json(college);
+  });
 }
 
 // Updates an existing Colleges in the DB
@@ -119,10 +156,10 @@ export function update(req, res) {
     delete req.body._id;
   }
   return Colleges.findById(req.params.id).exec()
-    .then(handleEntityNotFound(res))
-    .then(saveUpdates(req.body))
-    .then(respondWithResult(res))
-    .catch(handleError(res));
+  .then(handleEntityNotFound(res))
+  .then(saveUpdates(req.body))
+  .then(respondWithResult(res))
+  .catch(handleError(res));
   /*Colleges.update({
     _id: req.Colleges._id
   }, req.body, {}, function(err, updatedColleges) {
@@ -145,7 +182,7 @@ export function remove(req, res) {
 // Deletes a Colleges from the DB
 export function destroy(req, res) {
   return Colleges.findById(req.params.id).exec()
-    .then(handleEntityNotFound(res))
-    .then(removeEntity(res))
-    .catch(handleError(res));
+  .then(handleEntityNotFound(res))
+  .then(removeEntity(res))
+  .catch(handleError(res));
 }

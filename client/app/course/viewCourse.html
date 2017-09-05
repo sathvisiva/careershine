@@ -1,6 +1,5 @@
-<div class="col-md-12 service-grids">
-	<img src="images/image4.jpg" style="min-width: 100%" class="img-responsive wow slideInLeft" data-wow-duration="0.1s" data-wow-delay="0.1s" alt="">
-</div>
+
+<navbar></navbar>
 
 <div class="container">
 	<div class="row">
@@ -13,35 +12,43 @@
 </div>
 <br>
 <div class="container">
-<div ng-cloak>
-  <md-content>
-    <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="OVERVIEW">
-        <md-content class="md-padding">
-          
-                           
-                          <div id="tab-content4" class="tab-content">
-                            <div ta-bind ng-model="course.overview"></div>
-                        </div>
-        </md-content>
-      </md-tab>
-      <md-tab label="PROGRAM FEES">
-        <md-content class="md-padding">                         
-                          <div id="tab-content5" class="tab-content">
-                           
-                             <div ta-bind ng-model="course.fees"></div>
-                        </div>
-        </md-content>
-      </md-tab>
-      <md-tab label="PROGRAM DETAILS">
-        <md-content class="md-padding">
-         <div id="tab-content6" class="tab-content">
-                          <div ta-bind ng-model="course.details"></div>
-                        </div>
-                        
-        </md-content>
-      </md-tab>
-    </md-tabs>
-  </md-content>
+  <div class="row">
+    <div class="col-md-8">
+      <div ng-cloak>
+        <md-content>
+          <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="OVERVIEW">
+              <md-content class="md-padding">
+
+
+                <div id="tab-content4" class="tab-content">
+                  <div ta-bind ng-model="course.overview"></div>
+                </div>
+              </md-content>
+            </md-tab>
+            <md-tab label="PROGRAM FEES">
+              <md-content class="md-padding">                         
+                <div id="tab-content5" class="tab-content">
+
+                 <div ta-bind ng-model="course.fees"></div>
+               </div>
+             </md-content>
+           </md-tab>
+           <md-tab label="PROGRAM DETAILS">
+            <md-content class="md-padding">
+             <div id="tab-content6" class="tab-content">
+              <div ta-bind ng-model="course.details"></div>
+            </div>
+
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+  </div>
+</div>
+<div class="col-md-4">
+  <enquiry></enquiry>
 </div>
 </div>
+</div>
+<footer></footer>

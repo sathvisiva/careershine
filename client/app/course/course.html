@@ -29,12 +29,12 @@
 							</thead>
 							<tbody>
 								<tr ng-repeat="course in courses" class="order-col">
-									<td><a href ="/viewCourse/{{course._id}}" >{{course.course}}</a></td>
+									<td><a href ="/viewCourse/{{course.shortname}}" >{{course.course}}</a></td>
 									<td >
 										<a ng-click=deleteCourse(course._id) class="trash"><span class="fa fa-trash fa-2x">                                </span></a>
 									</td>
 									<td >
-										<a href ="/editCourse/{{course._id}}" class="trash"><span class="fa fa-edit fa-2x">                                </span></a>
+										<a href ="/editCourse/{{course.shortname}}" class="trash"><span class="fa fa-edit fa-2x">                                </span></a>
 									</td>
 								</tr>
 							</tbody>
