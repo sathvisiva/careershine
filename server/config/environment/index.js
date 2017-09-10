@@ -19,7 +19,7 @@ var all = {
   root: path.normalize(__dirname + '/../../..'),
 
   // Server port
-  port: process.env.PORT || 3000,
+  port: process.env.PORT || 9000,
 
   // Server IP
   ip: process.env.IP || '0.0.0.0',
@@ -44,19 +44,19 @@ var all = {
   facebook: {
     clientID:     process.env.FACEBOOK_ID || 'id',
     clientSecret: process.env.FACEBOOK_SECRET || 'secret',
-    callbackURL:  (process.env.DOMAIN || 'http://localhost:3000') + '/auth/facebook/callback'
+    callbackURL:  (process.env.DOMAIN || 'http://localhost:9000') + '/auth/facebook/callback'
   },
 
   twitter: {
     clientID:     process.env.TWITTER_ID || 'id',
     clientSecret: process.env.TWITTER_SECRET || 'secret',
-    callbackURL:  (process.env.DOMAIN || 'http://localhost:3000') + '/auth/twitter/callback'
+    callbackURL:  (process.env.DOMAIN || 'http://localhost:9000') + '/auth/twitter/callback'
   },
 
   google: {
     clientID:     process.env.GOOGLE_ID || 'id',
     clientSecret: process.env.GOOGLE_SECRET || 'secret',
-    callbackURL:  (process.env.DOMAIN || 'http://localhost:3000') + '/auth/google/callback'
+    callbackURL:  (process.env.DOMAIN || 'http://localhost:9000') + '/auth/google/callback'
   }
 };
 
