@@ -65,6 +65,6 @@
     return Util;
   }
 
-  angular.module('todoListApp.util')
+  angular.module('careershineApp.util')
     .factory('Util', UtilService);
 })();

@@ -3,7 +3,7 @@
 
 
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('CourseCtrl', function($scope, $timeout, Courses, Colleges, Programs, $location) {
 
 	$scope.colleges =  Colleges.query();
@@ -24,7 +24,7 @@ angular.module('todoListApp')
 	}
 
 });
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('CourseListCtrl', function($scope, $timeout, Courses,  $location) {
 
 	$scope.courses =  Courses.query();
@@ -40,7 +40,7 @@ angular.module('todoListApp')
 
 });
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('CourseEditCtrl', function($scope, $timeout, Courses, Colleges, Programs,  $location,$routeParams) {
 
 	$scope.save = function(form) {
@@ -66,7 +66,7 @@ angular.module('todoListApp')
 
 });
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('CourseViewCtrl', function($scope, $timeout, Courses, Colleges, Programs,  $location,$routeParams) {
 
 	$scope.colleges =  Colleges.query();

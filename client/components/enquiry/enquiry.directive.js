@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('todoListApp')
+angular.module('careershineApp')
   .directive('enquiry', () => ({
     templateUrl: 'components/enquiry/enquiry.html',
     restrict: 'E',

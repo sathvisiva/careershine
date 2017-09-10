@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('todoListApp')
+angular.module('careershineApp')
   .directive('footer', function() {
     return {
       templateUrl: 'components/footer/footer.html',

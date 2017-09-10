@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('todoListApp.util', []);
+angular.module('careershineApp.util', []);

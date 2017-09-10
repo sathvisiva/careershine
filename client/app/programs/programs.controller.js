@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('AddProgramCtrl', function($scope, $timeout, Programs,  $location) {
 
 
@@ -18,23 +18,23 @@ angular.module('todoListApp')
 
 });
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('ProgramListCtrl', function($scope, $timeout, Programs,  $location) {
 
 	$scope.programs =  Programs.query();
 	
 
 	$scope.deleteProgram = function(programsid) {
-    
-      Programs.delete({ id:programsid }, function(resp) {
-        
-        $scope.programs.splice($scope.programs.indexOf(programsid), 1);
-      })
-    };
+
+		Programs.delete({ id:programsid }, function(resp) {
+
+			$scope.programs.splice($scope.programs.indexOf(programsid), 1);
+		})
+	};
 
 });
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('ProgramEditCtrl', function($scope, $timeout, Programs,  $location,$routeParams) {
 
 	$scope.save = function(form) {
@@ -57,12 +57,16 @@ angular.module('todoListApp')
 
 });
 
-angular.module('todoListApp')
-.controller('ProgramViewCtrl', function($scope, $timeout, Programs,  $location,$routeParams) {
+angular.module('careershineApp')
+.controller('ProgramViewCtrl', function($scope, $timeout, Programs,Courses,  $location,$routeParams) {
 
 
 	$scope.program = Programs.get({ slug: $routeParams.id }, function(resp) {
+		var q = {where:{program:resp._id}};
+		$scope.courses = Courses.query(q, function(res) {
+			console.log(res);
 
+		});
 		
 	});
 

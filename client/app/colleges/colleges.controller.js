@@ -3,7 +3,7 @@
 
 
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('AddCollegeCtrl', function($scope, $timeout, Colleges,  $location) {
 	$scope.save = function(form) {
 		if (form.$valid) {
@@ -18,23 +18,23 @@ angular.module('todoListApp')
 		}
 	}		
 });
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('CollegeListCtrl', function($scope, $timeout, Colleges,  $location) {
 
 	$scope.colleges =  Colleges.query();
 	
 
 	$scope.deleteCollege = function(collegeid) {
-    
-      Colleges.delete({ id:collegeid }, function(resp) {
-        
-        $scope.colleges.splice($scope.colleges.indexOf(collegeid), 1);
-      })
-    };
+
+		Colleges.delete({ id:collegeid }, function(resp) {
+
+			$scope.colleges.splice($scope.colleges.indexOf(collegeid), 1);
+		})
+	};
 
 });
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('CollegeEditCtrl', function($scope, $timeout, Colleges,  $location,$routeParams) {
 
 	$scope.save = function(form) {
@@ -57,13 +57,17 @@ angular.module('todoListApp')
 
 });
 
-angular.module('todoListApp')
-.controller('CollegeViewCtrl', function($scope, $timeout, Colleges,  $location,$routeParams) {
+angular.module('careershineApp')
+.controller('CollegeViewCtrl', function($scope, $timeout, Colleges, Courses, $location,$routeParams) {
 
 
 	$scope.college = Colleges.get({ id: $routeParams.id }, function(resp) {
+		var q = {where:{college:resp._id}};
+		$scope.courses = Courses.query(q, function(res) {
+			console.log(res);
 
-		
+		});
+
 	});
 
 });

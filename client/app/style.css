@@ -496,8 +496,8 @@ p.para-agileits-w3layouts {
 	}
 
 	.post-listing a:hover {
-    color: #ecc31f;
-}
+		color: #ecc31f;
+	}
 
 	.post-listing_title {
 		font-size: 1.5em;
@@ -508,4 +508,11 @@ p.para-agileits-w3layouts {
 	.post-listing_date {
 		color: #8a8a8a;
 		font-size: 0.9em;
+	}
+
+	footer.footer {
+		text-align: center;
+		padding: 30px 0;
+		margin-top: 70px;
+		border-top: 1px solid #E5E5E5;
 	}

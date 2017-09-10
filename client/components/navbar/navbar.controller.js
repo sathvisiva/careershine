@@ -1,33 +1,11 @@
 'use strict';
-/*
-class NavbarController {
-  //end-non-standard
 
-  //start-non-standard
-  constructor($location) {
-  	this.$location = $location;
-  }
-
-  isActive(route) {
-  	return route === this.$location.path();
-  }
-}
-
-angular.module('todoListApp')
-.controller('NavbarController', NavbarController);*/
-
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('NavbarController', function($scope, $timeout, Courses, Colleges, Programs, $location) {
 
 
 	$scope.programs =  Programs.query();
-	/*$scope.colleges =  Colleges.query();*/	
-	
 
-
-	/*console.log($scope.colleges);
-	console.log($scope.courses);
-	*/
 	$scope.slides = [];
 	$scope.active = 0;
 	$scope.myInterval = 3000;
@@ -35,7 +13,7 @@ angular.module('todoListApp')
 
 	for(var i=1;i<5;i++){  
 		$scope.slides.push({
-			image: 'assets/banners/banner'+i+'.jpg'
+			image: 'assets/img/banner'+i+'.jpg'
 		});
 	}
 
@@ -82,20 +60,5 @@ angular.module('todoListApp')
 	}
 
 	$scope.buildnavbar();
-
-
-
-/*	$scope.save = function(form) {
-		if (form.$valid) {
-			Courses.save($scope.course, function(resp) {
-				console.log('created', resp);
-				$location.path('/listCourse');
-
-			}, function(err) {
-				console.log(err);
-				$scope.message == err;
-			});
-		}
-	}*/
 
 });

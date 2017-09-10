@@ -6,10 +6,10 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/careershine'
+    uri: 'mongodb://localhost/bhcmart-dev'
   },
 
   // Seed database on startup
-  seedDB: false
+  seedDB: true
 
 };

@@ -3,7 +3,7 @@
 
 
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('AddBlogCtrl', function($scope, $timeout, Blog, $location) {
 
 	/*$scope.colleges =  Colleges.query();
@@ -24,7 +24,7 @@ angular.module('todoListApp')
 	}
 
 });
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('BlogListCtrl', function($scope, $timeout, Blog,  $location) {
 
 	$scope.posts =  Blog.query();
@@ -40,7 +40,7 @@ angular.module('todoListApp')
 
 });
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('BlogEditCtrl', function($scope, $timeout, Blog,  $location,$routeParams) {
 
 	$scope.save = function(form) {
@@ -65,7 +65,7 @@ angular.module('todoListApp')
 
 });
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('BlogViewCtrl', function($scope, $timeout, Blog,  $location,$routeParams) {
 
 
@@ -90,8 +90,8 @@ angular.module('todoListApp')
 	}
 
 	$scope.getComments = function(){
-    $scope.comments = Blog.comments({ id: $scope.post._id })
-    
-  }
+		$scope.comments = Blog.comments({ id: $scope.post._id })
+		
+	}
 
 });

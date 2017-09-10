@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .factory('Programs', function ($resource) {
   return $resource('api/programs/:id', {
     id: '@_id'
@@ -10,7 +10,7 @@ angular.module('todoListApp')
     }
   });
 });
-angular.module('todoListApp')
+angular.module('careershineApp')
 .factory('Colleges', function ($resource) {
   return $resource('api/colleges/:id', {
     id: '@_id'
@@ -20,7 +20,7 @@ angular.module('todoListApp')
     }
   });
 });
-angular.module('todoListApp')
+angular.module('careershineApp')
 .factory('Courses', function ($resource) {
   return $resource('api/courses/:id', {
     id: '@_id'
@@ -30,7 +30,7 @@ angular.module('todoListApp')
     }
   });
 });
-angular.module('todoListApp')
+angular.module('careershineApp')
 .factory('Enquiry', function ($resource) {
   return $resource('api/enquiry/:id', {
     id: '@_id'
@@ -41,7 +41,7 @@ angular.module('todoListApp')
   });
 });
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .factory('Blog', function ($resource) {
   return $resource('api/blog/:id/:controller', {
     id: '@_id'

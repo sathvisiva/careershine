@@ -6,6 +6,15 @@
 				<div class="text-center">
 					<h1  class="title">{{program.name}}</h1>
 				</div>
+				<div >
+					<span><h3 class="title">Courses Offered</h3></span>
+					<ul ng-repeat="course in courses">
+						<li >
+							<a href ="/viewCourse/{{course.shortname}}" >{{course.course}}</a>
+							
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

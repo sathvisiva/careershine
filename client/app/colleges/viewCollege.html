@@ -5,12 +5,24 @@
 	<div class="row">
 
 		<div class="col-md-12">
+
 			<div class="text-center">
 				<span><img ng-src={{college.logo}} style="width: 100px;"/></span>
 				<span><h1  class="title">{{college.name}}</h1></span>
 			</div>
+
+			<div >
+				<span><h3 class="title">Courses Offered</h3></span>
+				<ul ng-repeat="course in courses">
+					<li >
+						<a href ="/viewCourse/{{course.shortname}}" >{{course.course}}</a>
+						
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
+</div>
 </div>
 <br>
 <div class="container">
@@ -23,7 +35,7 @@
 			</div>
 		</div>
 		<div class="col-md-4">
-		<enquiry></enquiry>
+			<enquiry></enquiry>
 		</div>
 	</div>
 </div>

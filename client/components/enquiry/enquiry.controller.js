@@ -1,22 +1,5 @@
 'use strict';
-/*
-class NavbarController {
-  //end-non-standard
-
-  //start-non-standard
-  constructor($location) {
-  	this.$location = $location;
-  }
-
-  isActive(route) {
-  	return route === this.$location.path();
-  }
-}
-
-angular.module('todoListApp')
-.controller('NavbarController', NavbarController);*/
-
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('EnquiryController', function($scope, $timeout, Courses, Colleges, Programs, Enquiry,$location) {
 
 
@@ -64,17 +47,12 @@ angular.module('todoListApp')
 
 });
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('EnquireListCtrl', function($scope, $timeout, Enquiry,  $location) {
-
 	$scope.enquiries =  Enquiry.query();
-	
-
-	
-
 });
 
-angular.module('todoListApp')
+angular.module('careershineApp')
 .controller('EnquireviewCtrl', function($scope, $timeout, Enquiry, Courses,Colleges, $location,$routeParams) {
 
 	var q = {where:{_id:$routeParams.id}};

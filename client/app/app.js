@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('todoListApp', ['ngResource', 'ngRoute','textAngular','ngMaterial','ui.bootstrap'])
+angular.module('careershineApp', ['ngResource', 'ngRoute','textAngular','ngMaterial','ui.bootstrap'])
 .config(function($routeProvider, $locationProvider) {
 	$routeProvider
 	.when('/', {

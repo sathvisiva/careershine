@@ -15,25 +15,14 @@ import errorHandler from 'errorhandler';
 import path from 'path';
 import lusca from 'lusca';
 import config from './environment';
+import passport from 'passport';
 import session from 'express-session';
 import connectMongo from 'connect-mongo';
 import mongoose from 'mongoose';
-var MongoStore = connectMongo(session);
+var mongoStore = connectMongo(session);
 
 export default function(app) {
   var env = app.get('env');
-
-  if (env === 'development' || env === 'test') {
-    app.use(express.static(path.join(config.root, '.tmp')));
-  }
-
-  if (env === 'production') {
-    app.use(favicon(path.join(config.root, 'client', 'favicon.ico')));
-  }
-
-  app.set('appPath', path.join(config.root, 'client'));
-  app.use(express.static(app.get('appPath')));
-  app.use(morgan('dev'));
 
   app.set('views', config.root + '/server/views');
   app.engine('html', require('ejs').renderFile);
@@ -43,17 +32,18 @@ export default function(app) {
   app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(cookieParser());
+  app.use(passport.initialize());
 
-  // Persist sessions with MongoStore / sequelizeStore
+  // Persist sessions with mongoStore / sequelizeStore
   // We need to enable sessions for passport-twitter because it's an
   // oauth 1.0 strategy, and Lusca depends on sessions
   app.use(session({
     secret: config.secrets.session,
     saveUninitialized: true,
     resave: false,
-    store: new MongoStore({
+    store: new mongoStore({
       mongooseConnection: mongoose.connection,
-      db: 'todo-list'
+      db: 'bhcmart'
     })
   }));
 
@@ -61,7 +51,7 @@ export default function(app) {
    * Lusca - express server security
    * https://github.com/krakenjs/lusca
    */
-  if (env !== 'test' && !process.env.SAUCE_USERNAME) {
+  if (env !== 'development' && env !== 'test') {
     app.use(lusca({
       csrf: {
         angular: true
@@ -76,17 +66,22 @@ export default function(app) {
     }));
   }
 
+  app.set('appPath', path.join(config.root, 'client'));
+
+  if ('production' === env) {
+    app.use(favicon(path.join(config.root, 'client', 'favicon.ico')));
+    app.use(express.static(app.get('appPath')));
+    app.use(morgan('dev'));
+  }
+
   if ('development' === env) {
-    app.use(require('connect-livereload')({
-      ignore: [
-        /^\/api\/(.*)/,
-        /\.js(\?.*)?$/, /\.css(\?.*)?$/, /\.svg(\?.*)?$/, /\.ico(\?.*)?$/, /\.woff(\?.*)?$/,
-        /\.png(\?.*)?$/, /\.jpg(\?.*)?$/, /\.jpeg(\?.*)?$/, /\.gif(\?.*)?$/, /\.pdf(\?.*)?$/
-      ]
-    }));
+    app.use(require('connect-livereload')());
   }
 
   if ('development' === env || 'test' === env) {
+    app.use(express.static(path.join(config.root, '.tmp')));
+    app.use(express.static(app.get('appPath')));
+    app.use(morgan('dev'));
     app.use(errorHandler()); // Error handler - has to be last
   }
 }
