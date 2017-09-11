@@ -82,8 +82,8 @@ p{
 		/*background-color: #08508e;*/
 		text-decoration: none;
 		color: #ffffff;
-		background-color: #6EA875 !important; 
-		border: 1px solid #6EA875 !important;
+		background-color: #39B8E1 !important; 
+		border: 1px solid #39B8E1 !important;
 	}
 
 	.navbar-nav .open .dropdown-menu {
@@ -116,9 +116,9 @@ p{
 
 
 .navbar-default {
-	background-color: #6EA875 !important; 
-	border: 1px solid #6EA875 !important;
-	box-shadow: 0 1px 2px #6EA875;
+	background-color: #39B8E1 !important; 
+	border: 1px solid #39B8E1 !important;
+	box-shadow: 0 1px 2px #39B8E1;
 	height: 60px;
 }
 
