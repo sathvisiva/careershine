@@ -1,10 +1,12 @@
 'use strict';
-angular.module('careershineApp').controller('EnquiryController', function ($scope, $timeout, Courses, Colleges, Programs, Enquiry, $location) {
+angular.module('careershineApp').controller('EnquiryController', function ($scope, $timeout, Courses, Colleges, Programs, Enquiry, $location, NavbarService) {
 
 	$scope.cities = ['Bangalore', 'Bharuch', 'Bhopal', 'Bhubaneswar', 'Calicut', 'Chandigarh', 'Ahmedabad', 'Chennai', 'Cochin', 'Coimbatore', 'Durgapur', 'Faridabad', 'Ghaziabad', 'GOA', 'Gurgaon', 'Hyderabad', 'Indore', 'Jaipur', 'Jalandhar', 'Jammu', 'Jamshedpur', 'Jodhpur', 'Kanpur', 'Kolkata', 'Lucknow', 'Ludhiana', 'Mohali', 'Mumbai', 'Nagpur', 'New Delhi', 'Noida', 'Panchkula', 'Patna', 'Pune', 'Raipur', 'Ranchi', 'Trivandrum', 'Udaipur', 'Vadodara', 'Vapi', 'Varanasi', 'Vishakhapatnam'];
 
 	$scope.colleges = Colleges.query();
 	$scope.courses = Courses.query();
+
+	var servicecourses = NavbarService.getCourses();
 
 	$scope.update = function () {
 

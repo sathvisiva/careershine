@@ -1,6 +1,6 @@
 'use strict';
 angular.module('careershineApp')
-.controller('EnquiryController', function($scope, $timeout, Courses, Colleges, Programs, Enquiry,$location) {
+.controller('EnquiryController', function($scope, $timeout, Courses, Colleges, Programs, Enquiry,$location, NavbarService) {
 
 
 	
@@ -18,6 +18,8 @@ angular.module('careershineApp')
 
 	$scope.colleges = Colleges.query();
 	$scope.courses =  Courses.query()
+
+	var servicecourses = NavbarService.getCourses();
 
 
 

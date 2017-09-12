@@ -6,7 +6,7 @@
 				<div class="text-center">
 					<h1  class="title">{{program.name}}</h1>
 				</div>
-				<div >
+				<div ng-if="courses.length > 0">
 					<span><h3 class="title">Courses Offered</h3></span>
 					<ul ng-repeat="course in courses">
 						<li >

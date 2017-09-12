@@ -1,5 +1,5 @@
 'use strict';
-angular.module('careershineApp').controller('MainCtrl', function ($scope, $timeout, Courses, filterFilter, $location, Colleges) {
+angular.module('careershineApp').controller('MainCtrl', function ($scope, $timeout, Courses, filterFilter, $location, Colleges, NavbarService) {
 	var q = { where: { enablement: true } };
 	$scope.enablementcourses = [];
 
