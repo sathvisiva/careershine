@@ -12,16 +12,8 @@ var Schema = mongoose.Schema;
  	email : String,
  	phone : Number,
  	city	: String,
- 	college: {
- 		type: Schema.Types.ObjectId,
- 		ref: 'Colleges',
- 		index: true
- 	},
- 	course: {
- 		type: Schema.Types.ObjectId,
- 		ref: 'Course',
- 		index: true
- 	},
+ 	college: String,
+ 	course: String,
  	comments: String,
  	createdAt: Date,
  	updatedAt: Date,

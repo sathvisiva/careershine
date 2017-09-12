@@ -11,6 +11,7 @@
 
  import _ from 'lodash';
  import Enquiry from './enquiry.model';
+ var mail = require('../mail/sendmail');
 
  function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -131,7 +132,20 @@ export function show(req, res) {
 export function create(req, res) {
  Enquiry.create(req.body, function(err, enquiry) {
   if(err) { return handleError(res, err); }
-  
+
+
+   let enquirydetails = [
+      {
+        'Name': enquiry.name,
+        'Phone': enquiry.phone,
+        'Email': enquiry.email,
+        'City': enquiry.city,
+        'College' : enquiry.college,
+        'Course' : enquiry.course,
+        'Comments' : enquiry.comments
+      }
+      ];
+        mail.sendmail('enquiry',enquirydetails);
   return res.status(201).json(enquiry);
 });
 }

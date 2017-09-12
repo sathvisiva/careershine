@@ -5,8 +5,8 @@ transporter = nodemailer.createTransport({
   port: 465,
     secure: true, // use SSL
     auth: {
-      user: 'admin@wrapsytest.com',
-      pass: 'SS@thTinku'
+      user: 'contact@careershine.in',
+      pass: 'Bala@2759'
     }
   }),
 EmailTemplate = require('email-templates').EmailTemplate,
@@ -41,8 +41,8 @@ export function sendmail(templ, data) {
   loadTemplate(templ, data).then((results) => {
     return Promise.all(results.map((result) => {
       sendEmail({
-        to: result.context.email,
-        from: '"Wrapsy" <admin@wrapsytest.com>',
+        to: 'contact@careershine.in',
+        from: '"careershine" <contact@careershine.in>',
         subject: result.email.subject,
         html: result.email.html,
         text: result.email.text,
